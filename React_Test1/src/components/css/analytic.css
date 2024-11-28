@@ -13,8 +13,9 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr; 
     grid-template-rows: auto auto; 
-    gap: 20px; 
+    gap: 30px; 
     padding: 20px;
+    
   }
   
   .row {
@@ -25,10 +26,41 @@ body {
     padding: 20px;
     margin-top: 20px;
     height: 350px;
-    
-    
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+.p-3:hover {
+  transform: translateY(-5px);
+}
+/* สำหรับหน้าจอที่กว้างไม่เกิน 768px (เช่น Tablet หรือมือถือ) */
+@media (max-width: 768px) {
+    .p-3 {
+        padding: 15px;
+        height: 250px;
+    }
+}
+
+/* สำหรับหน้าจอที่กว้างไม่เกิน 576px (เช่น มือถือขนาดเล็ก) */
+@media (max-width: 576px) {
+    .p-3 {
+        padding: 10px;
+        height: 200px;
+    }
+}
+
+ @media (max-width: 992px) {
+  .col-md-3 {
+    flex: 1 1 calc(50% - 20px); /* Adjust for tablets */
+    max-width: calc(50% - 20px);
   }
-  
+}
+
+@media (max-width: 576px) {
+  .col-md-3 {
+    flex: 1 1 100%; /* Full width for smaller screens */
+    max-width: 100%;
+  }
+} 
   .box {
     background-color: #262D47;
     border-radius: 10px;
@@ -48,14 +80,23 @@ body {
     text-align: center;
     font-size: 12px;
     color: white;
-    background: linear-gradient(90deg, #FF9933 0%, #FFC300 100%);
+    background: linear-gradient(90deg, #FF5733, #FFC300);
+    animation: progress-animation 1.5s ease-in-out;
   }
-  
+  @keyframes progress-animation {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
   h6 {
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 5px;
     color: #fff;
+    
   }
   
   .chart-title {
@@ -74,6 +115,7 @@ body {
     width: 100%;
     justify-content: space-between;
     margin-top: 5px;
+    margin-bottom: 5px;
   }
 
   .col-md-3,

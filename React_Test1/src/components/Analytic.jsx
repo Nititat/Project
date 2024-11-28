@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Chart from 'react-apexcharts';
-
+import axios from "axios";
 import '../components/css/analytic.css';
 
 
@@ -8,10 +8,10 @@ import '../components/css/analytic.css';
 
 const Dashboard = () => {
   const cardMetrics = [
-    { title: "CLICKS", value: 1213, color: "#00c6ff, #0072ff" },
-    { title: "VIEWS", value: 422, color: "#17ead9, #6078ea" },
-    { title: "LEADS", value: 311, color: "#f7971e, #ff0844" },
-    { title: "SALES", value: 22, color: "#7b4397, #dc2430" },
+    { title: "DDoS", value: 1213, color: "#00c6ff, #0072ff" },
+    { title: "Malware", value: 422, color: "#17ead9, #6078ea" },
+    { title: "Phishing", value: 311, color: "#f7971e, #ff0844" },
+    { title: "SQL Injection", value: 22, color: "#7b4397, #dc2430" },
   ];
   
   const sparklineOptions = {
@@ -45,7 +45,7 @@ const Dashboard = () => {
       height: 350,
     },
     title: {
-      text: "Load Average",
+      text: "The most attacked countries",
       style: {
         fontSize: "14px",
         color: "#fff",
@@ -71,7 +71,7 @@ const Dashboard = () => {
 
   const columnChartData = [
     {
-      name: "Load Average",
+      name: "The most attacked countries",
       data: [
         [new Date().getTime(), 10],
         [new Date().getTime() + 60000, 20],
@@ -132,6 +132,7 @@ const Dashboard = () => {
         [new Date().getTime() + 120000, 100],
         [new Date().getTime() + 180000, 150],
       ],
+      
     },
     {
       name: "Waiting",
@@ -208,7 +209,7 @@ const Dashboard = () => {
       <div className="row">
         <div className="col-md-6">
           <div className="p-3" style={{ background: "#262D47", borderRadius: "10px" }}>
-            <Chart options={columnChartOptions} series={columnChartData} type="line" height={300} />
+            <Chart options={columnChartOptions} series={columnChartData} type="bar" height={300} />
           </div>
         </div>
         <div className="col-md-6">
@@ -229,7 +230,7 @@ const Dashboard = () => {
               <div>
                 <h6 style={{ color: "#fff" }}>Process 1</h6>
                 <div className="progress">
-                  <div className="progress-bar" role="progressbar" style={{ width: "46%", background: "#FF9933" }}>
+                  <div className="progress-bar" role="progressbar" style={{ width: "46%",  }}>
                     46%
                   </div>
                 </div>
